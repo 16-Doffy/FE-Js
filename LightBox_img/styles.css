@@ -15,6 +15,15 @@
   max-width: 1000px;
   margin: 0 auto;
 }
+.lb .content .lb-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  z-index: 1000;
+}
 .lb .content .lb-prev,
 .lb .content .lb-next {
   position: absolute;

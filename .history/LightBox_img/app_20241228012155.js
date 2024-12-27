@@ -6,49 +6,43 @@ img.forEach((item) => {
 function handleZoomImg(event) {
   const image = event.target.getAttribute("img");
   const template = `
-     <div class="lb">
+     <div class="lb" > 
         <div class="content">
-            <i class="fa fa-times lb-close"></i>
-            <i class="fa fa-angle-left lb-prev"></i>
+        <i class="fa fa-angle-left lb-prev"></i>
             <img src="${image}" alt="" class="lb-img">
             <i class="fa fa-angle-right lb-next"></i>
         </div>
-     </div>`;
+    </div>`;
   document.body.insertAdjacentHTML("beforeend", template);
 }
-
 let index = 0;
 document.body.addEventListener("click", function (e) {
-  const lightbox = document.querySelector(".lb");
   const lightIMG = document.querySelector(".lb-img");
   let lightSrc = "";
-
-  // Close lightbox
-  if (e.target.matches(".lb") || e.target.matches(".lb-close")) {
-    lightbox.remove();
-  }
-
-  // Navigate to the next image
-  else if (e.target.matches(".lb-next")) {
+  if (e.target.getAttribute(".lb")) {
+    e.target.parentNode.removeChild(e.target);
+  } else if (e.target.matches(".lb-next")) {
     lightSrc = lightIMG.getAttribute("src");
     index = [...img].findIndex((item) => item.getAttribute("src") === lightSrc);
     index = index + 1;
-    if (index > img.length - 1) {
-      index = 0;
-    }
+    if (index > img.length -1) {
+        index = 0;
+    };
     const newSrc = [...img][index].getAttribute("src");
     lightIMG.setAttribute("src", newSrc);
-  }
-
-  // Navigate to the previous image
-  else if (e.target.matches(".lb-prev")) {
+  } else if (e.target.matches(".lb-prev")) 
+    {
     lightSrc = lightIMG.getAttribute("src");
     index = [...img].findIndex((item) => item.getAttribute("src") === lightSrc);
     index = index - 1;
     if (index < 0) {
-      index = img.length - 1;
-    }
+       index = img.length-1;
+    };
     const newSrc = [...img][index].getAttribute("src");
     lightIMG.setAttribute("src", newSrc);
   }
 });
+function closeLightbox(e) {
+    if (e.target === e.currentTarget) { // Check if the outer div is clicked
+      e.currentTarget.remove(); // Remove the lightbox
+    }}
