@@ -1,0 +1,70 @@
+.lb {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999999;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .content {
+        position: relative; // Allows absolute positioning of children
+        max-width: 1000px;
+        margin: 0 auto;
+
+        .lb-prev,
+        .lb-next {
+            position: absolute; // Position icons absolutely
+            top: 50%; // Center vertically
+            transform: translateY(-50%); // Adjust for icon size
+            color: rgb(238, 7, 7);
+            font-size: 32px; // Adjust to desired size
+            cursor: pointer; // Change cursor to pointer
+
+            &.lb-prev {
+                left: 10px; // Position on the left side with some margin
+            }
+
+            &.lb-next {
+                right: 10px; // Position on the right side with some margin
+            }
+        }
+    }
+
+    .lb-img {
+        max-height: 400px;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 4px;
+    }
+}
+/*light box*/
+
+
+body {
+    font-size: 16px;
+    line-height: 1;
+}
+.cc-content {
+    max-width: 1024px;
+    padding: 50px 25px;
+    font-size: 16px;
+    font-weight: 200;
+    line-height: 2;
+    margin: 0 auto;
+
+
+    p {
+        margin-bottom: 30px;
+    }
+    img {
+        display: block;
+        width: 20%;
+        height: 30%;
+        margin-bottom: 30px;
+        cursor: zoom-in;
+    }
+}
