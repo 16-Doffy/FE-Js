@@ -1,0 +1,12 @@
+.header{
+    padding: 10px;
+    font-size: 30px;
+    .content{
+        color: red;
+        .img{
+            width: 100%;
+            height: auto;
+            border: 1px solid black;
+        }
+    }
+}

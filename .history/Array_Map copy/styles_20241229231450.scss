@@ -1,0 +1,12 @@
+// styles.scss
+.header {
+    padding: 10px;
+    font-size: 30px;
+    .content {
+        color: rgb(29, 9, 204);
+        img {
+            width: 10%;
+            border: 1px solid black;
+        }
+    }
+}
