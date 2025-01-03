@@ -1,0 +1,48 @@
+.yt-list {
+  display: grid;
+  grid-template-columns: repeat(3 , 1fr);
+  grid-gap:25px;
+  padding: 25px;
+  
+   
+}
+.yt-img {
+ width: 100%;
+  height: 100%;
+  margin-bottom: 15px;
+}
+.yt-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.yt-footer{
+  display: flex;
+  align-items: flex-start;
+  gap:0 20px;
+}
+.yt-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 100rem;
+  object-fit: cover;
+  flex-shrink: 0;
+
+}
+.yt-avatar img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  margin-bottom: 10px;
+}
+.yt-title{
+  display: flex;
+  font-size: 14px;
+ margin-top: -2px;
+}
+.yt-auth{
+  font-size: 15px;
+  color: #2403b999;
+  font-weight: 700;
+  margin-top: -5px;
+}
