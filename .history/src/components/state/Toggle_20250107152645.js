@@ -10,11 +10,11 @@ function Toggle() {
   // onClick ={() => setOn(true)}
   //  {/* Toggle {on ? "On" : "Off"} */}
   // const ha
-  // console.log("clicked");
-  // setOn(callback) -> setOn(prevState => ! prevState[]) phủ định
+    // console.log("clicked");
+    // setOn(callback) -> setOn(prevState => ! prevState[]) phủ định
   const handleToggle = () => {
-    setOn((on) => !on);
-  };
+  
+    setOn((on) => !on)
   return (
     <div>
       <div class={`toggle ${on ? "active" : ""}`} onClick={handleToggle}>
