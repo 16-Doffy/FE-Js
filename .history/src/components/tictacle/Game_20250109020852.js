@@ -3,40 +3,58 @@ import Board from "./Board";
 import "./GameStyle.css";
 import { calwinner } from "../../helper";
 
+//initialState = gtri khởi tao
 const initialState = {
   board: Array(9).fill(null),
   xIsNext: true,
 };
+// immutable (ko thể chỉnh sửa)
+// [...arr] {..obj}
+// deep copy JSON.parse (JSON.stringfy(obj))
 const gameReducer = (state, action) => {
+  // switch (action.type) {
+  //     case 'CLICK':
+
+  //         break;
+
+  //     default:
+  //         break;
+  // }
   switch (action.type) {
-    case "CLICK": {
+    case "CLICK":
       const { board, xIsNext } = state;
       const { index, winner } = action.payload;
       if (winner || board[index]) return state;
       const nextState = JSON.parse(JSON.stringify(state));
 
-      //   board[index] = state.xIsNext ? "X" : "O";
+    //   board[index] = state.xIsNext ? "X" : "O";
       nextState.board[index] = xIsNext ? "X" : "O";
       nextState.xIsNext = !xIsNext;
       return nextState;
-    }
-    case "RESET": {
-      const nextState = JSON.parse(JSON.stringify(state));
-      
-      nextState.board = Array(9).fill(null);
-      nextState.xIsNext = true;
-      return nextState;
-    }
+
     default:
-        console.log("Error")
       break;
   }
   return state;
 };
 const Game = () => {
+  // const[board , setBoard] =useState(Array(9).fill(null));
+  // const [xIsNext , setXIsNext] = useState(true);
+  // use reducer
+  //const [state ,dispatch] = useReducer(reducer , initialState);
   const [state, dispatch] = useReducer(gameReducer, initialState);
+  // const action = {type: 'CLICK' , payload:{}}
+  //const dispatch ({type:'CLICK'})
+  //dispatch (action)
+  //   const [state, setState] = useState({
+  //     board: Array(9).fill(null),
+  //     xIsNext: true,
+  //     name:"doffy"
+  //   });
   const winner = calwinner(state.board);
   const handleClick = (index) => {
+    // const boardCoppy = [...state.board];
+    // if (winner || boardCoppy[index]) return;
     dispatch({
       type: "CLICK",
       payload: {
@@ -44,11 +62,20 @@ const Game = () => {
         winner,
       },
     });
+    // boardCoppy[index] = state.xIsNext ? "X" : "O";
+    // setState({
+    //     ...state,
+    //     board:boardCoppy,
+    //     xIsNext:!state.xIsNext,
+
+    // });
+    // console.log(state);
+    // setBoard(boardCoppy);
+    // setXIsNext((xIsNext) => !xIsNext);
   };
   const handleResetGame = () => {
-    dispatch({
-      type: "RESET",
-    });
+    // setBoard(Array(9).fill(null));
+    // setXIsNext(true); // luôn là X đầu
   };
   return (
     <div>
